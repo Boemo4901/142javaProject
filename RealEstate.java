@@ -1,3 +1,8 @@
+//domain name ->Real Estate Listing manager
+//it allows users to veiw and manage property listings in various cities and suburb in botswana
+//and can be used in other 
+/*RealEstate.java
+*/
 public class RealEstate {
     private String city;
     private String suburb;
@@ -9,10 +14,10 @@ public class RealEstate {
     public RealEstate(String city,String suburb,int bedrooms, double price,int rating) throws InvalidRatingException
     {
         if (rating < 1 || rating > 5){
-            throw new InvalidRaTingException("Rating must be between 1 and 5");
+            throw new InvalidRatingException("Rating must be between 1 and 5");
         }
         this.city = city;
-        this.surbub = surbub;
+        this.suburb = suburb;
         this.bedrooms = bedrooms;
         this.price = price;
         this.rating = rating;
@@ -23,12 +28,12 @@ public class RealEstate {
         return city;
     }
 
-    public String getsuburb(){
+    public String getSuburb(){
         return suburb;
     }
 
-    public  int getBedroom(){
-        return bedroom;
+    public  int getBedrooms(){
+        return bedrooms;
     }
 
     public double getPrice(){
@@ -41,6 +46,6 @@ public class RealEstate {
 
 @Override
     public String toString() {
-    return city + " , " + suburb + " with " + bedrooms + " bed(s) and is Priced at P" + price + " with a star rating of" + ratings + "stars";
+    return city + " , " + suburb + " with " + bedrooms + " bed(s) and is Priced at P" + price + " with a star rating of" + rating + "stars";
     }
     }
