@@ -11,15 +11,13 @@ public class RealEstate {
         if (rating < 1 || rating > 5){
             throw new InvalidRaTingException("Rating must be between 1 ans 5");
         }
-        this.city=city;
-        this.surbub=surbub;
-        this.bedrooms=bedrooms;
-        this.price=price;
-        this.rating=rating;
-
+        this.city = city;
+        this.surbub = surbub;
+        this.bedrooms = bedrooms;
+        this.price = price;
+        this.rating = rating;
     }
     
-
     //getters and setters
     public String getCity(){
         return city;
@@ -27,12 +25,20 @@ public class RealEstate {
 
     public String getsuburb(){
         return suburb;
-
     }
 
     public  int getBedroom(){
+        return bedroom;
+    }
 
-    
+    public double getPrice(){
+        return price;
+    }
+
+    public int getRating(){
+        return rating;
+    }
+
 @Override
     public String toString() {
     return city + " , " + suburb + " with " + bedrooms + " bed(s) and is Priced at P" + price + " with a star rating of" + ratings + "stars";
