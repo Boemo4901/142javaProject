@@ -1,8 +1,3 @@
-//domain name ->Real Estate Listing manager
-//it allows users to veiw and manage property listings in various cities and suburb in botswana
-//and can be used in other 
-/*RealEstate.java
-*/
 public class RealEstate {
     private String city;
     private String suburb;
