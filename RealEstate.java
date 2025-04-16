@@ -9,7 +9,7 @@ public class RealEstate {
     public RealEstate(String city,String suburb,int bedrooms, double price,int rating) throws InvalidRatingException
     {
         if (rating < 1 || rating > 5){
-            throw new InvalidRaTingException("Rating must be between 1 ans 5");
+            throw new InvalidRaTingException("Rating must be between 1 and 5");
         }
         this.city = city;
         this.surbub = surbub;
