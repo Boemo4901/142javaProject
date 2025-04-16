@@ -32,8 +32,7 @@ public class RealEstate {
 
     public  int getBedroom(){
 
-        
-    //print out/return 
+    
 @Override
     public String toString() {
     return city + " , " + suburb + " with " + bedrooms + " bed(s) and is Priced at P" + price + " with a star rating of" + ratings + "stars";
