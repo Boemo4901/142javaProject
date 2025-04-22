@@ -1,6 +1,22 @@
 public class RealEstateManager {
 
-    public static insertionSortByRating(RealEstate[] listings) {
+    //Sorting by Price
+    public static void selectionSortByPrice(RealEstate[] listings) {
+        for(int i = 0;i < listings.length - 1; i++) {
+            int minIndex = i;
+            for(int j = i + 1; j < listings.length; j++) {
+                if(listings[j].getPrice() < listings[minIndex].getPrice()) {
+                    minIndex = j;
+                }
+            }
+            RealEstate temp = listings[i];
+            listings[i] = listings[minIndex];
+            listings[minIndex] = temp;
+        }
+    }
+
+    //Sort by Rating
+    public static void insertionSortByRating(RealEstate[] listings) {
         for (int i = 1; i <listings.length; i++) {
             RealEstate key = listings[i];
             int j = i - 1;
@@ -12,15 +28,13 @@ public class RealEstateManager {
         }
     }
 
-    public static int linearSearchBySuburb(RealEstate [] istings, String suburb ){
+    public static int linearSearchBySuburb(RealEstate [] listings, String suburb ){
         for(int i = 0; i < listings.length; i++){
             if (listings[i].getSuburb().equalsIgnoreCase(suburb)){
                 
                 return i;
             }
         }
-
         return -1;
-
-   }
+    }
 }
