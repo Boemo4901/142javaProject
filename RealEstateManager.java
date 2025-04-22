@@ -40,7 +40,7 @@ public class RealEstateManager {
 
     //binary search by price
 
-    public static int binarySearchBYPrice(RealEstate[] listings , int price) {
+    public static int binarySearchBYPrice(RealEstate[] listings , double price) {
         int left = 0, right = listings.length - 1;
         while (left <= right){
             int mid = (left + right ) / 2;
