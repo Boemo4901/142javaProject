@@ -37,4 +37,20 @@ public class RealEstateManager {
         }
         return -1;
     }
+
+    //binary search by price
+
+    public static int binarySearchBYPrice(RealEstate[] listings , int price) {
+        int left = 0, right = listings.length - 1;
+        while (left <= right){
+            int mid = (left + right ) / 2;
+            int current = listings[mid].getPrice();
+
+            if (current == price)  return mid ;
+            if (current < price)  left = mid + 1;
+            else right = mid - 1;
+
+        }
+        return - 1;
+    }
 }
