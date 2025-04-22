@@ -44,7 +44,7 @@ public class RealEstateManager {
         int left = 0, right = listings.length - 1;
         while (left <= right){
             int mid = (left + right ) / 2;
-            int current = listings[mid].getPrice();
+            double current = listings[mid].getPrice();
 
             if (current == price)  return mid ;
             if (current < price)  left = mid + 1;
