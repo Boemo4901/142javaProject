@@ -11,4 +11,16 @@ public class RealEstateManager {
             listings[ j + 1] = key;
         }
     }
+
+    public static int linearSearchBySuburb(RealEstate [] istings, String suburb ){
+        for(int i = 0; i < listings.length; i++){
+            if (listings[i].getSuburb().equalsIgnoreCase(suburb)){
+                
+                return i;
+            }
+        }
+
+        return -1;
+
+   }
 }
