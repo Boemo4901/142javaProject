@@ -4,9 +4,6 @@ public class MainApp{
     
     public static void main(String[] args){
 
-        RealEstate estate= new RealEstate();
-        RealEstateManager manager = new RealEstateManager();
-
         try{
             RealEstate[] listings = new RealEstate[5];
             listings[0] = new RealEstate("Gaborone", "Tsholofelo East", 4, 5900, 4);
@@ -26,9 +23,9 @@ public class MainApp{
                 System.out.println("5>.Sort by price");
                 System.out.println("6>.Exit");
                 System.out.println("<<<<<<<<<<<<<  >>>>>>>>>>>");
-
-
-            option = scanner.nextInt();
+                option = scanner.nextInt();
+                scanner.nextLine(); 
+                
             switch (option){
                 case 1  {
                    System.out.println("These are available apartments");
@@ -45,8 +42,8 @@ public class MainApp{
                     }
                 }
                 case 3  {
-                    manager.insertionSortByRating(listings);//sort ny rating
-                    System.out.println();
+                    RealEstateManager.insertionSortByRating(listings);//sort ny rating
+                    System.out.println("Sorted by Rating ");
                     displayListings(listings);
                 }
                 case 4  {
@@ -68,7 +65,9 @@ public class MainApp{
                 }
                 case 6  {
                     System.out.println(" EXITING...");
-            }
+                }default{
+                    System.out.println(" Invalid choice.");
+                }
                }while(option!=6);
             
             scanner.close();
