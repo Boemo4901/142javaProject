@@ -29,8 +29,8 @@ public class MainApp{
                 System.out.println("<<<<<<<<<<<<<  >>>>>>>>>>>");
                 option = scanner.nextInt();
                 scanner.nextLine();
-                switch (choice){
                 
+                switch (choice){
                     case 1 -> {
                         System.out.println("These are available apartments");
                         displayListings(listings);
@@ -69,15 +69,14 @@ public class MainApp{
                     case 5 -> {
                         RealEstateManager.selectionSortByPrice(listings);//sort by price
                         System.out.println(" Sorted by Price.");
-                        System.out.print("NB : Sorted from highest to lowest");
                         displayListings(listings);
                     }
-                
                     case 6 -> System.out.println(" EXITING...");
                     default -> System.out.println(" Invalid choice.");
-                }while(option!=6);        
-                scanner.close();
-            } catch (InvalidRatingException e) {
+                }
+            }while(option!=6);
+            scanner.close();
+        } catch (InvalidRatingException e) {
             System.out.println(" Error: " + e.getMessage());
         }
     } 
