@@ -30,10 +30,10 @@ public class MainApp{
 
             option = scanner.nextInt();
             switch (option){
-                case 1:
+                case 1  {
                    System.out.println("These are available apartments");
                    displayListings(listings);
-                   break;
+                }
                 case 2 {
                     System.out.println("Enter suburb to search: ");//search by location
                     String suburb = scanner.nextLine();
@@ -43,13 +43,13 @@ public class MainApp{
                     }else{
                         System.out.println("Sorry!! Search not Found!");
                     }
-                        break;
-                case 3:
+                }
+                case 3  {
                     manager.insertionSortByRating(listings);//sort ny rating
                     System.out.println();
                     displayListings(listings);
-                    break;
-                case 4:
+                }
+                case 4  {
                     System.out.println("Enter price"); //search by price
                     
                     double price=scanner.nextDouble();
@@ -57,14 +57,14 @@ public class MainApp{
                     
                     System.out.println(found);
                     
-                    break;
-                case 5:
+                }
+                case 5  {
                     RealEstateManager.selectionSortByPrice(listings);//sort by price
                     System.out.println(" Sorted by Price.");
                     System.out.print("NB : Sorted from highest to lowest");
                     displayListings(listings);
-                    break; 
-                case 6:
+                }
+                case 6  {
                     System.out.println(" EXITING...");
             }
                }while(option!=6);
