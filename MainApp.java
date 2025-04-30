@@ -20,7 +20,6 @@ public class MainApp{
             displayListings(listings);
 
             //sort by rating 
-            // Sort by rating
             RealEstateManager.insertionSortByRating(listings);
             System.out.println("\n Listings Sorted by Rating:");
             displayListings(listings);
