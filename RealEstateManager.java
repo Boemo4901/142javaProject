@@ -1,3 +1,8 @@
+/*
+ * Utility class for managing real estate listings.
+ * Provides sorting and searching algorithms for RealEstate objects.
+ */
+
 public class RealEstateManager {
 
     //Sorting by Price
@@ -9,6 +14,7 @@ public class RealEstateManager {
                     minIndex = j;
                 }
             }
+            // Swap the found minimun element with the element at position i
             RealEstate temp = listings[i];
             listings[i] = listings[minIndex];
             listings[minIndex] = temp;
@@ -39,9 +45,8 @@ public class RealEstateManager {
         return -1;
     }
 
-    //binary search by price
-
-    public static int binarySearchBYPrice(RealEstate[] listings , double price) {
+    // Perfoms a binary search for a RealEstate object by price.
+    public static int binarySearchByPrice(RealEstate[] listings , double price) {
         int left = 0, right = listings.length - 1;
         while (left <= right){
             int mid = (left + right ) / 2;
