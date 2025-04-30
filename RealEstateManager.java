@@ -5,7 +5,9 @@
 
 public class RealEstateManager {
 
-    //Sorting by Price
+    /* Sorts an array of RealEstate objects by price using selection sort algorithm.
+     * Arranges listings in ascending order of price.
+     */
     public static void selectionSortByPrice(RealEstate[] listings) {
         for(int i = 0;i < listings.length - 1; i++) {
             int minIndex = i;
@@ -21,9 +23,11 @@ public class RealEstateManager {
         }
     }
 
-    //Sort by Rating
+    /* Sorts an array of RealEstate objects by rating using insertion sort algorithm.
+     * Arranges listings in descending order of rating (highest rating first).
+     */
     public static void insertionSortByRating(RealEstate[] listings) {
-        for (int i = 1; i <listings.length; i++) {
+        for (int i = 1; i < listings.length; i++) {
             RealEstate key = listings[i];
             int j = i - 1;
             while (j >= 0 && listings[j].getRating() < key.getRating()){
@@ -34,7 +38,7 @@ public class RealEstateManager {
         }
     }
 
-    //linear search by Suburb
+    // Performs a linear search for a RealEstate objectby suburb name.
     public static int linearSearchBySuburb(RealEstate [] listings, String suburb ){
         for(int i = 0; i < listings.length; i++){
             if (listings[i].getSuburb().equalsIgnoreCase(suburb)){
