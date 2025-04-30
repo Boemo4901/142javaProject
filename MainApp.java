@@ -27,11 +27,11 @@ public class MainApp{
                 scanner.nextLine(); 
                 
             switch (option){
-                case 1  {
+                case 1 : {
                    System.out.println("These are available apartments");
                    displayListings(listings);
                 }
-                case 2 {
+                case 2 :{
                     System.out.println("Enter suburb to search: ");//search by location
                     String suburb = scanner.nextLine();
                     int index = RealEstateManager.linearSearchBySuburb(listings, suburb);
@@ -41,12 +41,12 @@ public class MainApp{
                         System.out.println("Sorry!! Search not Found!");
                     }
                 }
-                case 3  {
+                case 3 : {
                     RealEstateManager.insertionSortByRating(listings);//sort ny rating
                     System.out.println("Sorted by Rating ");
                     displayListings(listings);
                 }
-                case 4  {
+                case 4 : {
                     RealEstateManager.selectionSortByPrice(listings); //sort before binary search
                     System.out.println("Enter price to search: ");
                     int price = scanner.nextInt();
@@ -57,22 +57,20 @@ public class MainApp{
                         System.out.println("Not found.");
                     }
                 }
-                case 5  {
+                case 5 : {
                     RealEstateManager.selectionSortByPrice(listings);//sort by price
                     System.out.println(" Sorted by Price.");
                     System.out.print("NB : Sorted from highest to lowest");
                     displayListings(listings);
                 }
-                case 6  {
+                case 6 : {
                     System.out.println(" EXITING...");
                 }default{
                     System.out.println(" Invalid choice.");
                 }
-               }while(option!=6);
-            
-            scanner.close();
-            
-        }  catch (InvalidRatingException e) {
+            }while(option!=6);
+                scanner.close();
+        } catch (InvalidRatingException e) {
             System.out.println(" Error: " + e.getMessage());
         }
     } 
