@@ -5,9 +5,7 @@ import java.util.Scanner;
  */
 
 public class MainApp{
-    
     public static void main(String[] args){
-
         try{
             RealEstate[] listings = new RealEstate[5];
             listings[0] = new RealEstate("Gaborone", "Tsholofelo East", 4, 5900, 4);
@@ -18,7 +16,7 @@ public class MainApp{
 
             // Create scanner for user input
             Scanner scanner = new Scanner(System.in);
-            int option;
+            int choice;
             do { 
                 // Display menu options
                 System.out.println("<<<<< MY APARTMENTS >>>>>");
@@ -30,60 +28,102 @@ public class MainApp{
                 System.out.println("6>.Exit");
                 System.out.println("<<<<<<<<<<<<<  >>>>>>>>>>>");
                 option = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine();
+                switch (choice){
                 
-            switch (option){
-                case 1 : {
-                   System.out.println("These are available apartments");
-                   displayListings(listings);
-                }
-                case 2 :{
-                    System.out.println("Enter suburb to search: ");//search by location
-                    String suburb = scanner.nextLine();
-                    int index = RealEstateManager.linearSearchBySuburb(listings, suburb);
-                    if (index != -1) {
-                        System.out.println(" Found: " + listings[index]);
-                    } else {
-                        System.out.println("Sorry!! Search not Found!");
+                    case 1 -> {
+                   
+                        System.out.println("These are available apartments");
+                   
+                        displayListings(listings);
+                
                     }
-                }
-                case 3 : {
-                    RealEstateManager.insertionSortByRating(listings);//sort ny rating
-                    System.out.println("Sorted by Rating ");
-                    displayListings(listings);
-                }
-                case 4 : {
-                    RealEstateManager.selectionSortByPrice(listings); //sort before binary search
-                    System.out.println("Enter price to search: ");
-                    int price = scanner.nextInt();
-                    int index = RealEstateManager.binarySearchByPrice( listings, price);
-                    if ( index != -1) {
-                        System.out.println("Found: " + listings[index]);
-                    } else {
-                        System.out.println("Not found.");
+                
+                    case 2 ->{
+                    
+                        System.out.println("Enter suburb to search: ");//search by location
+                    
+                        String suburb = scanner.nextLine();
+                    
+                        int index = RealEstateManager.linearSearchBySuburb(listings, suburb);
+                    
+                        if (index != -1) {
+                        
+                            System.out.println(" Found: " + listings[index]);
+                   
+                        } else {
+                        
+                            System.out.println("Sorry!! Search not Found!");
+                    
+                        }
+                
                     }
-                }
-                case 5 : {
-                    RealEstateManager.selectionSortByPrice(listings);//sort by price
-                    System.out.println(" Sorted by Price.");
-                    System.out.print("NB : Sorted from highest to lowest");
-                    displayListings(listings);
-                }
-                case 6 : {
-                    System.out.println(" EXITING...");
-                } default {
-                    System.out.println(" Invalid choice.");
-                }
-            }while(option!=6);
+                
+                    case 3 -> {
+                    
+                        RealEstateManager.insertionSortByRating(listings);//sort ny rating
+                    
+                        System.out.println("Sorted by Rating ");
+                    
+                        displayListings(listings);
+                
+                    }
+                
+                    case 4 -> {
+                   
+                        RealEstateManager.selectionSortByPrice(listings); //sort before binary search
+                    
+                        System.out.println("Enter price to search: ");
+                    
+                        int price = scanner.nextInt();
+                    
+                        int index = RealEstateManager.binarySearchByPrice( listings, price);
+                    
+                        if ( index != -1) {
+                        
+                            System.out.println("Found: " + listings[index]);
+                    
+                        } else {
+                        
+                            System.out.println("Not found.");
+                    
+                        }
+                
+                    }
+                
+                    case 5 -> {
+                   
+                        RealEstateManager.selectionSortByPrice(listings);//sort by price
+                    
+                        System.out.println(" Sorted by Price.");
+                    
+                        System.out.print("NB : Sorted from highest to lowest");
+                    
+                        displayListings(listings);
+                
+                    }
+                
+                    case 6 -> System.out.println(" EXITING...");
+                    default -> System.out.println(" Invalid choice.");
+                }while(option!=6);
+                
+            
                 scanner.close();
-        } catch (InvalidRatingException e) {
+       
+            } catch (InvalidRatingException e) {
+           
             System.out.println(" Error: " + e.getMessage());
+        
         }
+    
     } 
 
-/*
- * Displays all real estate listings with appropriate formatting.
- */
+ 
+    /*
+   * Displays all real estate listings with appropriate formatting.
+     */
+    
+    
     public static void displayListings(RealEstate[] listings) {
         System.out.println("\n Availiable listings");
         for (RealEstate r : listings) {
