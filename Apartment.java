@@ -1,7 +1,7 @@
 public class Apartment extends RealEstate{
   private int floorLevel;
 
-  public Apartment (String city, String suburb, int bedrooms,Int price,Int rating,Int floorLevel )thows invalidRatingException {
+  public Apartment (String city, String suburb, int bedrooms,Int price,Int rating,Int floorLevel )throws invalidRatingException {
     super( city, suburb ,bedrooms ,price,rating );
   }
   public int getFloorLevel(){
