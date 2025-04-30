@@ -50,13 +50,15 @@ public class MainApp{
                     displayListings(listings);
                 }
                 case 4  {
-                    System.out.println("Enter price"); //search by price
-                    
-                    double price=scanner.nextDouble();
-                    int found= manager.binarySearchByPrice(listings, price);
-                    
-                    System.out.println(found);
-                    
+                    RealEstateManager.selectionSortByPrice(listings); //sort before binary search
+                    System.out.println("Enter price to search: ");
+                    int price = scanner.nextInt();
+                    int index = RealEstateManager.binarySearchByPrice( listings, price);
+                    if ( index != -1) {
+                        System.out.println("Found: " + listings[index]);
+                    } else {
+                        System.out.println("Not found.");
+                    }
                 }
                 case 5  {
                     RealEstateManager.selectionSortByPrice(listings);//sort by price
