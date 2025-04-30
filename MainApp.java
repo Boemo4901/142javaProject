@@ -3,12 +3,12 @@ public class MainApp{
         try{
             //listings includes houses and apartments
             RealEstate[] listings = new RealEstate[6];
-            listings[0] = newRealEstate("Gaborone", "Tsholofelo East", 4, 5900, 4);
-            listings[1] = newRealEstate("Gaborone", "Bloack 7", 3, 7600, 5);
-            listings[2] = newApartment("Jwaneng", "Pilane", 2, 6500, 2, 2, True);
-            listings[3] = newRealEstate("Gaborone", "Tsholofelo East", 3, 10500, 6);
-            listings[4] = newApartment("Francistown", "Bloack 9", 3, 5000, 4, 3, False);
-            listings[5] = newRealEstate("Molepolole", "Maokane", 5, 12000, 8);
+            listings[0] = new RealEstate("Gaborone", "Tsholofelo East", 4, 5900, 4);
+            listings[1] = new RealEstate("Gaborone", "Bloack 7", 3, 7600, 5);
+            listings[2] = new Apartment("Jwaneng", "Pilane", 2, 6500, 2, 2, True);
+            listings[3] = new RealEstate("Gaborone", "Tsholofelo East", 3, 10500, 6);
+            listings[4] = new Apartment("Francistown", "Bloack 9", 3, 5000, 4, 3, False);
+            listings[5] = new RealEstate("Molepolole", "Maokane", 5, 12000, 8);
         
 
             System.out.println("Original listings:");
