@@ -1,60 +1,89 @@
-    //Main application demonstrates the use of RealEstate and Apartment classes with sorting and searching
+import java.util.Scanner;
 
 public class MainApp{
     
     public static void main(String[] args){
+
+        RealEstate estate= new RealEstate();
+        RealEstateManager manager = new RealEstateManager();
+
+        Scanner scanner = new Scanner(System.in);
+        int option;
         try{
-            //listings includes houses and apartments
-            RealEstate[] listings = new RealEstate[6];
+
+            do{
+
+        
+            RealEstate[] listings = new RealEstate[5];
             listings[0] = new RealEstate("Gaborone", "Tsholofelo East", 4, 5900, 4);
             listings[1] = new RealEstate("Gaborone", "Block 7", 3, 7600, 5);
-            listings[2] = new Apartment("Jwaneng", "Pilane", 2, 6500, 2, 2);
-            listings[3] = new RealEstate("Gaborone", "Tsholofelo East", 3, 10500, 6);
-            listings[4] = new Apartment("Francistown", "Block 9", 3, 5000, 4, 3);
-            listings[5] = new RealEstate("Molepolole", "Maokane", 5, 12000, 8);
-        
+            listings[2] = new RealEstate("Jwaneng", "Pilane", 2, 6500, 2);
+            listings[3] = new RealEstate("Gaborone", "Tsholofelo East", 3, 10500, 5);
+            listings[4] = new RealEstate("Francistown", "Block 7", 3, 5000, 4);
 
-            System.out.println("Original listings:");
-            dislayListings(listings);
 
-            //sort listings by price
-            RealEstateManager.selectionSortByPrice(listings);
-            System.out.println("\n Listings Sorted by Price:");
-            displayListings(listings);
 
-            //sort listings by rating 
-            RealEstateManager.insertionSortByRating(listings);
-            System.out.println("\n Listings Sorted by Rating:");
-            displayListings(listings);
+            System.out.println("<<<<< MY APARTMENTS >>>>>");
+            System.out.println("1.List available apartments");
+            System.out.println("2.Search by name");
+            System.out.println("3.Sort by rating");
+            System.out.println("4.Search by price");
+            System.out.println("<<<<<<<<<<<<<  >>>>>>>>>>>");
 
-            //Linear search by Suburb
-            String targetSuburb = "Block 7";
-            int linearIndex = RealEstateManager.linearSearchBySuburb(listings, targetSuburb);
-            System.out.println("\nLinear Search for Suburb " + targetSuburb + ":");
-            if(linearIndex != -1) {
-                System.out.println("House found in " + listings[linearIndex]);
-            } else {
-                System.out.println(" Not found.");
-            }
 
-            //Binary search by price
-            int targetPrice = 10500;
-            RealEstateManager.selectionSortByPrice(listings); //sorting first
-            int binaryIndex = RealEstateManager.binarySearchByPrice(listings, targetPrice);
-            System.out.println("\n Binary search for price P" + targetPrice + ":");
-            if (binaryIndex != -1) {
-                System.out.println("House found in" + listings[binaryIndex]);
-            } else {
-                System.out.println("Not found.");
-            }
-        } catch (InvalidRatingException e) {
-            System.out.println("Error" + e.getMessage());
+            option = scanner.nextInt();
+            switch (option){
+                case 1:
+                   System.out.println("These are available apartments");
+                   displayListings(listings);
+                   break;
+
+                   case 2:
+                       System.out.println("Enter location");
+                       String location = scanner.next();
+
+                        //manager.linearSearchBySuburb(listings,location);
+
+                        RealEstate foundEstate = manager.linearSearchBySuburb(listings, location);
+
+                        foundEstate.info();
+
+                        break;
+
+                        case 3:
+                            manager.insertionSortByRating(listings);
+                            System.out.println();
+
+                            
+                            displayListings(listings);
+
+
+                            break;
+
+                            case 4:
+
+                                System.out.println("Enter price");
+                                double price=scanner.nextDouble();
+
+                               int found= manager.binarySearchByPrice(listings, price);
+
+                               System.out.println(found);
+
+                                break;
+                                  
+                            }
+               }
+                  while(option!=4);
+            }  catch (InvalidRatingException e) {
+              System.out.println(" Error: " + e.getMessage());
         }
-    }
+       
+       } 
 
-    public static void dislayListings(RealEstate[] listings) {
-        for (RealEstate r: listings) {
+    public static void displayListings(RealEstate[] listings) {
+        for (RealEstate r : listings) {
             System.out.println(r);
         }
     }
-}    
+}
+    
