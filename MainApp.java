@@ -10,7 +10,7 @@ public class MainApp{
             listings[1] = new RealEstate("Gaborone", "Block 7", 3, 7600, 5);
             listings[2] = new Apartment("Jwaneng", "Pilane", 2, 6500, 2, 2);
             listings[3] = new RealEstate("Gaborone", "Tsholofelo East", 3, 10500, 6);
-            listings[4] = new Apartment("Francistown", "Bloack 9", 3, 5000, 4, 3);
+            listings[4] = new Apartment("Francistown", "Block 9", 3, 5000, 4, 3);
             listings[5] = new RealEstate("Molepolole", "Maokane", 5, 12000, 8);
         
 
