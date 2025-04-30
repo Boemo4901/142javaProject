@@ -28,6 +28,7 @@ public class RealEstateManager {
         }
     }
 
+    //linear search by Suburb
     public static int linearSearchBySuburb(RealEstate [] listings, String suburb ){
         for(int i = 0; i < listings.length; i++){
             if (listings[i].getSuburb().equalsIgnoreCase(suburb)){

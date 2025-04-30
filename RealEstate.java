@@ -43,4 +43,4 @@ public class RealEstate {
     public String toString() {
     return city + " , " + suburb + " with " + bedrooms + " bed(s) and is Priced at P" + price + " with a star rating of" + rating + "stars";
     }
-    }
+}
