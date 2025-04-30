@@ -41,7 +41,7 @@ public class MainApp{
                     if (index != -1){
                         System.out.println(" Found: " + listings[index]);
                     }else{
-                        System.out.println("Sorry!! Search not Found!")
+                        System.out.println("Sorry!! Search not Found!");
                     }
                         break;
                 case 3:
