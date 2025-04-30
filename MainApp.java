@@ -7,28 +7,25 @@ public class MainApp{
         RealEstate estate= new RealEstate();
         RealEstateManager manager = new RealEstateManager();
 
-        Scanner scanner = new Scanner(System.in);
-        int option;
         try{
-
-            do{
-
-        
             RealEstate[] listings = new RealEstate[5];
             listings[0] = new RealEstate("Gaborone", "Tsholofelo East", 4, 5900, 4);
-            listings[1] = new RealEstate("Gaborone", "Block 7", 3, 7600, 5);
+            listings[1] = new RealEstate("Gaborone", "Block 9", 3, 7600, 5);
             listings[2] = new RealEstate("Jwaneng", "Pilane", 2, 6500, 2);
-            listings[3] = new RealEstate("Gaborone", "Tsholofelo East", 3, 10500, 5);
-            listings[4] = new RealEstate("Francistown", "Block 7", 3, 5000, 4);
-
-
-
-            System.out.println("<<<<< MY APARTMENTS >>>>>");
-            System.out.println("1.List available apartments");
-            System.out.println("2.Search by name");
-            System.out.println("3.Sort by rating");
-            System.out.println("4.Search by price");
-            System.out.println("<<<<<<<<<<<<<  >>>>>>>>>>>");
+            listings[3] = new RealEstate("Gaborone", "Phakalane", 3, 10500, 5,);
+            listings[4] = new Apartment("Francistown", "Block 7", 3, 5000, 4,2);
+            
+            Scanner scanner = new Scanner(System.in);
+            int option;
+            do{
+                System.out.println("<<<<< MY APARTMENTS >>>>>");
+                System.out.println("1>.List available properties");
+                System.out.println("2>.Search by name/location");
+                System.out.println("3>.Sort by rating");
+                System.out.println("4>.Search by price");
+                System.out.println("5>.Sort by price");
+                System.out.println("6>.Exit");
+                System.out.println("<<<<<<<<<<<<<  >>>>>>>>>>>");
 
 
             option = scanner.nextInt();
@@ -37,52 +34,57 @@ public class MainApp{
                    System.out.println("These are available apartments");
                    displayListings(listings);
                    break;
-
-                   case 2:
-                       System.out.println("Enter location");
-                       String location = scanner.next();
-
-                        //manager.linearSearchBySuburb(listings,location);
-
-                        RealEstate foundEstate = manager.linearSearchBySuburb(listings, location);
-
-                        foundEstate.info();
-
+                case 2:
+                    System.out.println("Enter property location to look for");//search by location
+                    String location = scanner.next();
+                    int index = RealEstateManager.linearSearchBySuburb(listings, suburb);
+                    if (index != -1){
+                        System.out.println(" Found: " + listings[index]);
+                    }else{
+                        System.out.println("Sorry!! Search not Found!")
+                    }
                         break;
-
-                        case 3:
-                            manager.insertionSortByRating(listings);
-                            System.out.println();
-
-                            
-                            displayListings(listings);
-
-
-                            break;
-
-                            case 4:
-
-                                System.out.println("Enter price");
-                                double price=scanner.nextDouble();
-
-                               int found= manager.binarySearchByPrice(listings, price);
-
-                               System.out.println(found);
-
-                                break;
-                                  
-                            }
-               }
-                  while(option!=4);
-            }  catch (InvalidRatingException e) {
-              System.out.println(" Error: " + e.getMessage());
+                case 3:
+                    manager.insertionSortByRating(listings);//sort ny rating
+                    System.out.println();
+                    displayListings(listings);
+                    break;
+                case 4:
+                    System.out.println("Enter price"); //search by price
+                    
+                    double price=scanner.nextDouble();
+                    int found= manager.binarySearchByPrice(listings, price);
+                    
+                    System.out.println(found);
+                    
+                    break;
+                case 5:
+                    RealEstateManager.selectionSortByPrice(listings);//sort by price
+                    System.out.println(" Sorted by Price.");
+                    System.out.print("NB : Sorted from highest to lowest");
+                    displayListings(listings);
+                    break; 
+                case 6:
+                    System.out.println(" EXITING...");
+            }
+               }while(option!=6);
+            
+            scanner.close();
+            
+        }  catch (InvalidRatingException e) {
+            System.out.println(" Error: " + e.getMessage());
         }
-       
-       } 
+    } 
 
     public static void displayListings(RealEstate[] listings) {
+        System.out.println("\n Availiable listings");
         for (RealEstate r : listings) {
-            System.out.println(r);
+            if (r instanceof Apartment){
+                Apartment apt = (Apartment) r;
+                System.out.println(" Apartment: "+ apt.toString()+" Floor: "+apt.getFloorLevel());
+            }else {
+                System.out.println(" House : "+r.toString());
+            }
         }
     }
 }
