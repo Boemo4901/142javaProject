@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/* Main application class fr managing real estate listings.
+ * Provides a menu-driven interface for displaying, searching, and sorting properties.
+ */
+
 public class MainApp{
     
     public static void main(String[] args){
@@ -11,10 +15,12 @@ public class MainApp{
             listings[2] = new RealEstate("Jwaneng", "Pilane", 2, 6500, 2);
             listings[3] = new Apartment("Gaborone", "Phakalane", 3, 10500, 5,5);
             listings[4] = new Apartment("Francistown", "Block 7", 3, 5000, 4,2);
-            
+
+            // Create scanner for user input
             Scanner scanner = new Scanner(System.in);
             int option;
-            do{
+            do { 
+                // Display menu options
                 System.out.println("<<<<< MY APARTMENTS >>>>>");
                 System.out.println("1>.List available properties");
                 System.out.println("2>.Search by name/location");
@@ -35,9 +41,9 @@ public class MainApp{
                     System.out.println("Enter suburb to search: ");//search by location
                     String suburb = scanner.nextLine();
                     int index = RealEstateManager.linearSearchBySuburb(listings, suburb);
-                    if (index != -1){
+                    if (index != -1) {
                         System.out.println(" Found: " + listings[index]);
-                    }else{
+                    } else {
                         System.out.println("Sorry!! Search not Found!");
                     }
                 }
@@ -65,7 +71,7 @@ public class MainApp{
                 }
                 case 6 : {
                     System.out.println(" EXITING...");
-                }default{
+                } default {
                     System.out.println(" Invalid choice.");
                 }
             }while(option!=6);
@@ -75,6 +81,9 @@ public class MainApp{
         }
     } 
 
+/*
+ * Displays all real estate listings with appropriate formatting.
+ */
     public static void displayListings(RealEstate[] listings) {
         System.out.println("\n Availiable listings");
         for (RealEstate r : listings) {
