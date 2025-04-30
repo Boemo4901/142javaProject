@@ -34,9 +34,9 @@ public class MainApp{
                    System.out.println("These are available apartments");
                    displayListings(listings);
                    break;
-                case 2:
-                    System.out.println("Enter property location to look for");//search by location
-                    String location = scanner.next();
+                case 2 {
+                    System.out.println("Enter suburb to search: ");//search by location
+                    String suburb = scanner.nextLine();
                     int index = RealEstateManager.linearSearchBySuburb(listings, suburb);
                     if (index != -1){
                         System.out.println(" Found: " + listings[index]);
