@@ -12,7 +12,7 @@ public class MainApp{
             listings[0] = new RealEstate("Gaborone", "Tsholofelo East", 4, 5900, 4);
             listings[1] = new RealEstate("Gaborone", "Block 9", 3, 7600, 5);
             listings[2] = new RealEstate("Jwaneng", "Pilane", 2, 6500, 2);
-            listings[3] = new RealEstate("Gaborone", "Phakalane", 3, 10500, 5,);
+            listings[3] = new Apartment("Gaborone", "Phakalane", 3, 10500, 5,5);
             listings[4] = new Apartment("Francistown", "Block 7", 3, 5000, 4,2);
             
             Scanner scanner = new Scanner(System.in);
