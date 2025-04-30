@@ -27,7 +27,7 @@ public class MainApp{
                 System.out.println("5>.Sort by price");
                 System.out.println("6>.Exit");
                 System.out.println("<<<<<<<<<<<<<  >>>>>>>>>>>");
-                option = scanner.nextInt();
+                choice = scanner.nextInt();
                 scanner.nextLine();
                 
                 switch (choice){
@@ -74,7 +74,7 @@ public class MainApp{
                     case 6 -> System.out.println(" EXITING...");
                     default -> System.out.println(" Invalid choice.");
                 }
-            }while(option!=6);
+            }while(choice!=6);
             scanner.close();
         } catch (InvalidRatingException e) {
             System.out.println(" Error: " + e.getMessage());
