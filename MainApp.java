@@ -36,6 +36,25 @@ public class MainApp{
             } else {
                 System.out.println(" Not found.");
             }
+
+            //Binary search by price
+            int targetPrice = 10500;
+            RealEstateManager.selectionSortByPrice(listings); //sorting first
+            int binaryIndex = RealEstateManager.binarySearchByPrice(listings, targetPrice);
+            System.out.println("\n Binary search for price P" + targetPrice + ":");
+            if (binaryIndex != -1) {
+                System.out.println("House found in" + listings[binaryIndex]);
+            } else {
+                System.out.println("Not found.");
+            }
+        } catch (InvalidRatingException e) {
+            System.out.println("Error" + e.getMessage());
         }
     }
-}
+
+    public static void dislayListings(RealEstate[] listings) {
+        for (RealEstate r: listings) {
+            System.out.println(r);
+        }
+    }
+}    
