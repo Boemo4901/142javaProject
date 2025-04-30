@@ -10,7 +10,7 @@ public class MainApp{
             listings[1] = new RealEstate("Gaborone", "Block 7", 3, 7600, 5);
             listings[2] = new Apartment("Jwaneng", "Pilane", 2, 6500, 2, 2);
             listings[3] = new RealEstate("Gaborone", "Tsholofelo East", 3, 10500, 6);
-            listings[4] = new Apartment("Francistown", "Bloack 9", 3, 5000, 4, 3);
+            listings[4] = new Apartment("Francistown", "Block 9", 3, 5000, 4, 3);
             listings[5] = new RealEstate("Molepolole", "Maokane", 5, 12000, 8);
         
 
@@ -36,6 +36,25 @@ public class MainApp{
             } else {
                 System.out.println(" Not found.");
             }
+
+            //Binary search by price
+            int targetPrice = 10500;
+            RealEstateManager.selectionSortByPrice(listings); //sorting first
+            int binaryIndex = RealEstateManager.binarySearchByPrice(listings, targetPrice);
+            System.out.println("\n Binary search for price P" + targetPrice + ":");
+            if (binaryIndex != -1) {
+                System.out.println("House found in" + listings[binaryIndex]);
+            } else {
+                System.out.println("Not found.");
+            }
+        } catch (InvalidRatingException e) {
+            System.out.println("Error" + e.getMessage());
         }
     }
-}
+
+    public static void dislayListings(RealEstate[] listings) {
+        for (RealEstate r: listings) {
+            System.out.println(r);
+        }
+    }
+}    
