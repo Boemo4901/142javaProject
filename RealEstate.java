@@ -1,3 +1,8 @@
+/*
+ * Class representing real estate properties
+ * Handles property information including city, suburb, number of bedrooms, price and rating.
+ */
+
 public class RealEstate {
     private String city;
     private String suburb;
@@ -5,7 +10,7 @@ public class RealEstate {
     private double price;
     private int rating;
 
-    // creating constructors
+    // Constructor to initialize a real estate property with all details
     public RealEstate(String city,String suburb,int bedrooms, double price,int rating) throws InvalidRatingException
     {
         if (rating < 1 || rating > 5){
@@ -39,8 +44,9 @@ public class RealEstate {
         return rating;
     }
 
-@Override
+    //Returns a formatted string representation of the real estate property
+    @Override
     public String toString() {
-    return city + " , " + suburb + " with " + bedrooms + " bed(s) and is Priced at P" + price + " with a star rating of" + rating + "stars";
+        return city + " , " + suburb + " with " + bedrooms + " bed(s) and is Priced at P" + price + " with a star rating of" + rating + "stars";
     }
 }
