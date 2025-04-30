@@ -1,5 +1,6 @@
-public class MainApp{
     //Main application demonstrates the use of RealEstate and Apartment classes with sorting and searching
+
+public class MainApp{
     
     public static void main(String[] args){
         try{
@@ -16,12 +17,12 @@ public class MainApp{
             System.out.println("Original listings:");
             dislayListings(listings);
 
-            //sort by price
+            //sort listings by price
             RealEstateManager.selectionSortByPrice(listings);
             System.out.println("\n Listings Sorted by Price:");
             displayListings(listings);
 
-            //sort by rating 
+            //sort listings by rating 
             RealEstateManager.insertionSortByRating(listings);
             System.out.println("\n Listings Sorted by Rating:");
             displayListings(listings);
